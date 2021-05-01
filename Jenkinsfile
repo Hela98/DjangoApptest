@@ -2,8 +2,8 @@ pipeline {
 	agent any
 	
 	environment {
-	registry = "****"
-	registryCredentials = '---'
+	registry = "khouuloud/djangotest"
+	registryCredentials = 'dockerhubb'
 	DOCKER_TAG = getDockerTag()
 	app=''
 	}
