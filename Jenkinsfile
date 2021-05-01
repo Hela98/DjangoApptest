@@ -3,7 +3,7 @@ pipeline {
 	
 	environment {
 	registry = "khouuloud/djangotest"
-	registryCredentials = 'dockerhubb'
+	registryCredentials = 'django'
 	DOCKER_TAG = getDockerTag()
 	app=''
 	}
@@ -34,7 +34,7 @@ pipeline {
 		stage('Deploy'){
 		      steps{
 			echo "into deploy"
-			withCredentials([string(credentialsId:'dockerhubb', variable: 'dockerHubPwd')])
+			withCredentials([string(credentialsId:'django', variable: 'dockerHubPwd')])
 			{
 				sh "docker login -u khouuloud -p ${dockerHubPwd}"
 				sh "docker push khouuloud/djangotest:latest"
