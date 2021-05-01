@@ -1,0 +1,18 @@
+{% extends "books/base.html" %}
+
+{% block title %}
+    Remove Books from Your Reading List
+{% endblock %}            
+
+{% block body %}
+<h1>Remove a Book from Your Reading List</h1>
+    <form action="{% url 'delete' %}" method="POST" class="form-check">
+        {% csrf_token %}        
+        {% for book in books %}            
+            <input type="checkbox" name="checks[]" value="{{ book }}" class="form-check-input">{{ book }}</input><br>            
+        {% endfor %}   
+        <br>     
+        <button type="submit" id="button-remove" class="btn btn-danger">Remove Books</button>
+    </form>
+    <a href="{% url 'index' %}">Back to book list</a>
+{% endblock %}

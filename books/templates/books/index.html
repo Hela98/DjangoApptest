@@ -1,0 +1,53 @@
+{% extends "books/base.html" %}
+{% load static %}
+{% block title %}
+    Book List
+{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" type="text/css" href="{% static 'books/books.css' %}">
+    <script src="{% static 'books/index.js' %}"></script>
+{% endblock %}
+
+{% block body %}
+    <h1>{{ user }}'s Reading List</h1>
+    <form id="filter-form">
+        Filter by Author:
+        <select id="filter-author" name="filter-author" class="custom-select mb-3">
+            <option value="all"></option>
+            {% for author in authors %}
+                <option value="{{ author }}">{{ author }}</option>
+            {% endfor %}
+        </select><br>
+        Filter by Genre:
+        <select id="filter-genre" name="filter-genre" class="custom-select mb-3">
+            <option value="all"></option>
+            {% for genre in genres %}
+                <option value="{{ genre }}">{{ genre }}</option>
+            {% endfor %}
+        </select>
+    </form>
+
+    <ol id="booklist">
+        {% for book in books %}
+            <li>
+                {{ book }}
+            </li>
+        {% endfor %}
+    </ol>
+    <div id="button-container">
+        <form action="{% url 'create' %}">
+            <button id="addBook" type="submit" class="btn btn-outline-primary">Add Book(s)</button>
+        </form>
+        <form action="{% url 'delete' %}">
+            <button id="deleteBook" type="submit"  class="btn btn-outline-danger">Remove Book(s)</button>
+        </form>
+        <form action="{% url 'update' %}">
+            <button id="updateBook" type="submit"  class="btn btn-outline-secondary">Update Book(s) Details</button>
+        </form>
+    </div>
+    <br>
+    <form action="{% url 'logout' %}">
+        <button id="button-logout" type="submit" class="btn btn-dark">Logout</button>
+    </form>
+{% endblock %}
