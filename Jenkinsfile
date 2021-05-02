@@ -4,7 +4,6 @@ pipeline {
 	environment {
 	registry = "khouuloud/djangotest"
 	registryCredentials = 'django'
-	DOCKER_TAG = getDockerTag()
 	app=''
 	}
 	
@@ -27,17 +26,17 @@ pipeline {
 		      steps {
 			echo "into build"
 			script {
-			app = docker.build("khouuloud/djangotest")
+				app = docker.build(${registry})
 			}
 		      }
 		    }
 		stage('Deploy'){
 		      steps{
 			echo "into deploy"
-			withCredentials([string(credentialsId:'django', variable: 'dockerHubPwd')])
+			      withCredentials([string(credentialsId:${registryCredentials}, variable: 'dockerHubPwd')])
 			{
 				sh "docker login -u khouuloud -p ${dockerHubPwd}"
-				sh "docker push khouuloud/djangotest:latest"
+				sh "docker push ${registry}:latest"
 			}
 			}
 		}
@@ -46,7 +45,3 @@ pipeline {
 	}
 
 }
-def getDockerTag(){
-	def tag = sh script: 'git rev-parse HEAD', returnStdout: true
-	return tag
-    }
