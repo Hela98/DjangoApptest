@@ -33,7 +33,7 @@ pipeline {
 		stage('Deploy'){
 		      steps{
 			echo "into deploy"
-			      withCredentials([string(credentialsId:${registryCredentials}, variable: 'dockerHubPwd')])
+			      withCredentials([string(credentialsId:"${registryCredentials}", variable: 'dockerHubPwd')])
 			{
 				sh "docker login -u khouuloud -p ${dockerHubPwd}"
 				sh "docker push ${registry}:latest"
