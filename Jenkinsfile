@@ -24,7 +24,7 @@ pipeline {
 		    }*/
 		stage ('Test') {
 			steps {
-				sh 'apt-get install python-virtualenv'
+				sh 'sudo apt-get install python-virtualenv'
 				sh 'virtualenv env -p python3.5'
 				sh '. env/bin/activate'
 				sh 'env/bin/pip install -r requirements.txt'
