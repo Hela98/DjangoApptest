@@ -26,7 +26,7 @@ pipeline {
 		      steps {
 			echo "into build"
 			script {
-				app = docker.build(${registry})
+				app = docker.build("${registry}")
 			}
 		      }
 		    }
