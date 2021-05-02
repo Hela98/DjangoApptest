@@ -22,7 +22,7 @@ pipeline {
 			
 		      } 
 		    }*/
-		stage 'Test' {
+		stage ('Test') {
 			steps {
 			  // Invoke Django's tests
 			  sh 'source env/bin/activate && python ./manage.py runtests'
