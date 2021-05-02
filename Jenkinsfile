@@ -15,13 +15,19 @@ pipeline {
 			}
 		}
 		
-		stage ("Clone"){
+		/*stage ("Clone"){
 		      steps{
 			echo "cloning"
 			git branch: 'main', url: 'https://github.com/khouloudKE/DjangoApptest.git'
 			
 		      } 
-		    }
+		    }*/
+		stage 'Test' {
+			steps {
+			  // Invoke Django's tests
+			  sh 'source env/bin/activate && python ./manage.py runtests'
+			}
+		}
 		
 		stage ('Build'){
 		      steps {
