@@ -27,7 +27,7 @@ pipeline {
 				sh 'virtualenv env -p python3.8'
 				sh '. env/bin/activate'
 				sh 'env/bin/pip install -r requirements.txt'
-				sh 'env/bin/python3.8 manage.py test --testrunner=djtrump.tests.test_runners.NoDbTestRunner'
+				sh 'env/bin/python3.8 manage.py test'
 			}
 		}
 		
