@@ -2,9 +2,10 @@ pipeline {
 	agent any
 	
 	environment {
-	registry = "khouuloud/djangotest"
-	registryCredentials = 'django'
-	app=''
+		usernameDocker = "khouuloud"
+		registry = "khouuloud/djangotest"
+		registryCredentials = 'django'
+		app=''
 	}
 	
 	stages {
@@ -35,7 +36,7 @@ pipeline {
 			echo "into deploy"
 			      withCredentials([string(credentialsId:"${registryCredentials}", variable: 'dockerHubPwd')])
 			{
-				sh "docker login -u khouuloud -p ${dockerHubPwd}"
+				sh "docker login -u ${usernameDocker} -p ${dockerHubPwd}"
 				sh "docker push ${registry}:latest"
 			}
 			}
