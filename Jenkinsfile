@@ -32,7 +32,6 @@ pipeline {
 				}
 				catch (exec) {
 					echo 'Test file not found'
-            				throw
 				}
 			}
 		}
