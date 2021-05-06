@@ -23,6 +23,7 @@ pipeline {
 		      } 
 		    }*/
 		stage ('Test') {
+			steps {
 			try {
 				steps {
 				
@@ -35,6 +36,7 @@ pipeline {
 				catch (exec) {
 					echo 'Test file not found'
 				}
+			}
 			
 		}
 		
