@@ -22,7 +22,7 @@ pipeline {
 			
 		      } 
 		    }*/
-		stage ('Test') {
+		/*stage ('Test') {
 			steps {
 			try {
 				steps {
@@ -38,7 +38,7 @@ pipeline {
 				}
 			}
 			
-		}
+		}*/
 		
 		stage ('Build'){
 		      steps {
