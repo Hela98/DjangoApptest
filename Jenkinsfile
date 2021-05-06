@@ -24,10 +24,16 @@ pipeline {
 		    }*/
 		stage ('Test') {
 			steps {
-				sh 'virtualenv env -p python3.8'
-				sh '. env/bin/activate'
-				sh 'env/bin/pip install -r requirements.txt'
-				sh 'env/bin/python3.8 test.py test'
+				try {
+					sh 'virtualenv env -p python3.8'
+					sh '. env/bin/activate'
+					sh 'env/bin/pip install -r requirements.txt'
+					sh 'env/bin/python3.8 test.py test'
+				}
+				catch (exec) {
+					echo 'Test file not found'
+            				throw
+				}
 			}
 		}
 		
