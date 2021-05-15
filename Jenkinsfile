@@ -37,6 +37,20 @@ pipeline {
 				}
 				
 			}
+			post {
+			always {
+
+					script {
+						try{
+							junit 'test-reports/*.xml'
+						}
+						catch (e){
+							echo ' error'
+						}
+					}
+				}
+			
+		}
 		}
 		
 		stage ('Build'){
