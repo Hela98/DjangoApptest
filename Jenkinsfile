@@ -1,4 +1,4 @@
-pipeline {
+upipeline {
     
   environment {
     registry = "hela98/djangoApp"
@@ -10,7 +10,7 @@ pipeline {
   stages {
     stage('Cloning Git') {
       steps {
-        git 'https://github.com/Hela98/DjangoApptest.git'
+        checkout scm
       }
     }
     stage('Building image') {
