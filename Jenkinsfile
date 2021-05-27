@@ -1,7 +1,7 @@
 pipeline {
     
   environment {
-    registry = "hela98/djangoApp"
+    registry = "hela98/djangotest"
     registryCredential = 'dockerhub'
     dockerImage = ''
     DOCKER_TAG = 'latest'
