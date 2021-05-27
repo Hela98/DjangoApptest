@@ -1,4 +1,4 @@
-upipeline {
+pipeline {
     
   environment {
     registry = "hela98/djangoApp"
