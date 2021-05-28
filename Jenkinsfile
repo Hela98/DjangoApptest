@@ -25,13 +25,15 @@ pipeline {
         steps{
         
         script {
-        dockerImage.inside("""--entrypoint=''""") {
-            sh "./manage.py makemigrations"
-            sh "./manage.py migrate"
-            sh "./manage.py test"
+            dockerImage.withRun('-d=true -p 8888:8080') {c ->
+        
+                    dockerImage.inside("""--entrypoint=''""") {
+                    //sh "./manage.py makemigrations"
+                    //sh "./manage.py migrate"
+                    sh "./manage.py test"
+                     }
+             }
         }
-       }
-
     }
   }
       
