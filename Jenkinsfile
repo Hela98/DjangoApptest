@@ -26,7 +26,7 @@ pipeline {
         
         script {
         dockerImage.inside {
-            sh "./manage.py test"
+            sh "./app/manage.py test"
         }
        }
 
