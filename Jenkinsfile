@@ -23,16 +23,16 @@ pipeline {
 
     stage('Test') {
         steps{
-        docker.withServer($DOCKER_SERVER) {
+        
 
-        docker.image('$DOCKER_IMAGE').inside {
+        dockerImage.inside {
             sh "./manage.py test"
         }
 
     }
   }
       
-    }
+    
     
     stage('Deploy Image') {
       steps{
