@@ -9,4 +9,4 @@ COPY . /app/
 RUN pip3 install --upgrade pip
 RUN pip3 install -r requirements.txt
 #ENTRYPOINT python3 /app/manage.py
-CMD ['./app/manage.py', 'test']
+CMD ['python3', '/app/manage.py']
