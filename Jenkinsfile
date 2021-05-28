@@ -24,10 +24,11 @@ pipeline {
     stage('Test') {
         steps{
         
-
+        script {
         dockerImage.inside {
             sh "./manage.py test"
         }
+       }
 
     }
   }
