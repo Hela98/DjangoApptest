@@ -22,14 +22,14 @@ pipeline {
     }
 
     stage('Test') {
-      steps{
-        script {
-          dockerImage.inside() {
+        docker.withServer($DOCKER_SERVER) {
+
+        docker.image('$DOCKER_IMAGE').inside {
             sh "./manage.py test"
-        
-          }
         }
-      }
+
+    }
+      
     }
     
     stage('Deploy Image') {
