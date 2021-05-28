@@ -26,7 +26,7 @@ pipeline {
         
         script {
         dockerImage.inside("""--entrypoint=''""") {
-            sh "./app/manage.py test"
+            sh "./manage.py test"
         }
        }
 
