@@ -25,7 +25,7 @@ pipeline {
         steps{
         
         script {
-        dockerImage.inside("-u root --entrypoint='/app'") {
+        dockerImage.inside("""--entrypoint=''""") {
             sh "./manage.py test"
         }
        }
