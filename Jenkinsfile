@@ -22,6 +22,7 @@ pipeline {
     }
 
     stage('Test') {
+        steps{
         docker.withServer($DOCKER_SERVER) {
 
         docker.image('$DOCKER_IMAGE').inside {
@@ -29,6 +30,7 @@ pipeline {
         }
 
     }
+  }
       
     }
     
