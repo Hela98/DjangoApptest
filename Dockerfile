@@ -1,6 +1,8 @@
 From ubuntu
+RUN apt-get update
 RUN mkdir /app
 WORKDIR /app
+
 RUN apt-get update && apt-get upgrade -y
 RUN apt-get install python3 -y && apt-get install python3-pip -y
 COPY . /app/
