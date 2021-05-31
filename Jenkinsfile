@@ -27,7 +27,7 @@ pipeline {
         script {
             dockerImage.withRun('-u root') {c ->
         
-                    //dockerImage.inside("""--entrypoint=''""") {
+                    dockerImage.inside("""--entrypoint=''""") {
                     //sh "./manage.py makemigrations"
                     //sh "./manage.py migrate"
                     sh "./manage.py test"
