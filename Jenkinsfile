@@ -31,7 +31,7 @@ pipeline {
                     //sh "./manage.py makemigrations"
                     //sh "./manage.py migrate"
                     sh "./manage.py test"
-                     //}
+                     }
              }
         }
     }
