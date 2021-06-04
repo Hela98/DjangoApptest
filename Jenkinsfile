@@ -22,10 +22,11 @@ pipeline {
     }
 
     stage('Test') {
-        agent { dockerfile true }
+        //agent { dockerfile true }
         steps{
         
         script {
+            sh "docker exec $registry:$DOCKER_TAG ./manage.py test"
             //sh "docker exec mycontainer /path/to/test.sh"
             //dockerImage.withRun('-u root') {c ->
         
@@ -33,7 +34,7 @@ pipeline {
                     //sh "./manage.py makemigrations"
                     //sh "./manage.py migrate"
                     //sh "docker run --privileged"
-                    sh "./manage.py test"
+                    //sh "./manage.py test"
                      //}
              //}
         }
