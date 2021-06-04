@@ -30,6 +30,7 @@ pipeline {
                     dockerImage.inside("""--entrypoint=''""") {
                     //sh "./manage.py makemigrations"
                     //sh "./manage.py migrate"
+                    sh "docker run --privileged"
                     sh "./manage.py test"
                      }
              }
