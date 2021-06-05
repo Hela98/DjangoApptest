@@ -29,7 +29,7 @@ pipeline {
         script {
             //sh "docker exec ${dockerImage.id} ./manage.py test"
             //sh "docker exec mycontainer /path/to/test.sh"
-            dockerImage.withRun("-itu root") {c ->
+            dockerImage.withRun("-itu root --privileged") {c ->
         
                     dockerImage.inside("""--entrypoint=''""") {
                     //sh "./manage.py makemigrations"
