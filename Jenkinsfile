@@ -26,7 +26,7 @@ pipeline {
         steps{
         
         script {
-            sh "docker exec $registry:$DOCKER_TAG ./manage.py test"
+            sh "docker exec dockerImage ./manage.py test"
             //sh "docker exec mycontainer /path/to/test.sh"
             //dockerImage.withRun('-u root') {c ->
         
