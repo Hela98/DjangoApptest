@@ -35,7 +35,9 @@ pipeline {
                     //sh "./manage.py makemigrations"
                     //sh "./manage.py migrate"
                     //sh "docker run --privileged"
-                    sh "./manage.py test"
+                    sh "chmod +x -R ${env.WORKSPACE}"
+                    sh './test.sh'
+                    //sh "./manage.py test"
                      }
              }
         }
