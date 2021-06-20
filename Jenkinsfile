@@ -21,7 +21,7 @@ pipeline {
       }
     }
 
-    stage('Test') {
+    /*stage('Test') {
         
         //agent { dockerfile true }
         steps{
@@ -44,7 +44,7 @@ pipeline {
              }
         }
     }
-  }
+  }*/
       
     
     
