@@ -35,6 +35,7 @@ pipeline {
                     //sh "./manage.py makemigrations"
                     //sh "./manage.py migrate"
                     //sh "docker run --privileged"
+                    sh "sudo su jenkins"
                     sh "sudo chmod a+x -R ${env.WORKSPACE}"
                     sh "sudo chmod a+x /app/test.sh"
                     sh '/app/test.sh'
