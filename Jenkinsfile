@@ -34,11 +34,11 @@ pipeline {
                     dockerImage.inside("""--entrypoint=''""") {
                     //sh "./manage.py makemigrations"
                     //sh "./manage.py migrate"
-                    sh "docker run --privileged"
-                    sh "chmod +x -R ${env.WORKSPACE}"
-                    sh "chmod +x /app/test.sh"
-                    sh '/app/test.sh'
-                    //sh "./manage.py test"
+                    //sh "docker run --privileged"
+                    //sh "chmod +x -R ${env.WORKSPACE}"
+                    //sh "chmod +x /app/test.sh"
+                    //sh '/app/test.sh'
+                    sh "./manage.py test"
                      }
              }
         }
