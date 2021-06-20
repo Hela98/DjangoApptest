@@ -9,7 +9,7 @@ COPY . /app/
 RUN pip3 install --upgrade pip
 RUN pip3 install -r requirements.txt
 
-RUN sudo chmod a+x /app/test.sh
+RUN chmod a+x /app/test.sh
 RUN /app/test.sh
 #ENTRYPOINT python3 /app/manage.py
 CMD ['python3', '/app/manage.py']
