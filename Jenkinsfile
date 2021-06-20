@@ -31,15 +31,15 @@ pipeline {
             //sh "docker exec mycontainer /path/to/test.sh"
             dockerImage.withRun("--name run-$BUILD_ID -p 8081:8080") {c ->
         
-                    //dockerImage.inside("""--entrypoint=''""") {
+                    dockerImage.inside("""--entrypoint=''""") {
                     //sh "./manage.py makemigrations"
                     //sh "./manage.py migrate"
-                    //sh "docker run --privileged"
+                    sh "docker run --privileged"
                     sh "chmod +x -R ${env.WORKSPACE}"
                     sh "chmod +x /app/test.sh"
                     sh '/app/test.sh'
                     //sh "./manage.py test"
-                    // }
+                     }
              }
         }
     }
